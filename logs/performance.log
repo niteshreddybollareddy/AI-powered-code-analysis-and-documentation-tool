@@ -1,0 +1,25 @@
+2025-09-11 05:00:37,978 - INFO - ⚡ query_processing: 2.65s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 27}
+2025-09-11 05:04:01,449 - INFO - ⚡ query_processing: 1.60s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 56}
+2025-09-11 05:04:32,525 - INFO - ⚡ query_processing: 0.00s - {"mode": "\ud83d\udcdd Keyword Search (exact matches)", "question_length": 56}
+2025-09-11 05:04:48,518 - INFO - ⚡ query_processing: 1.24s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 56}
+2025-09-11 05:05:11,341 - INFO - ⚡ query_processing: 0.00s - {"mode": "\ud83d\udcdd Keyword Search (exact matches)", "question_length": 56}
+2025-09-11 05:07:41,620 - INFO - ⚡ query_processing: 2.61s - {"question_length": 27}
+2025-09-11 05:07:53,800 - INFO - ⚡ query_processing: 1.42s - {"question_length": 56}
+2025-09-11 05:16:22,090 - INFO - ⚡ query_processing: 0.00s - {"mode": "\ud83d\udcdd Keyword Search (exact matches)", "question_length": 56}
+2025-09-11 05:16:40,864 - INFO - ⚡ query_processing: 8.94s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 56}
+2025-09-11 05:17:32,456 - INFO - ⚡ query_processing: 0.00s - {"mode": "\ud83d\udcdd Keyword Search (exact matches)", "question_length": 56}
+2025-09-11 05:18:18,028 - INFO - ⚡ query_processing: 0.00s - {"mode": "\ud83d\udcdd Keyword Search (exact matches)", "question_length": 56}
+2025-09-11 05:20:18,184 - INFO - ⚡ query_processing: 2.64s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 56}
+2025-09-11 05:20:32,172 - INFO - ⚡ query_processing: 0.01s - {"mode": "\ud83d\udcdd Keyword Search (exact matches)", "question_length": 56}
+2025-09-11 05:22:30,463 - INFO - ⚡ query_processing: 1.78s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 34}
+2025-09-11 05:26:02,475 - INFO - ⚡ query_processing: 83.56s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 78}
+2025-09-11 05:26:02,475 - INFO - ⚡ query_processing: 83.56s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 78}
+2025-09-11 05:27:07,358 - INFO - ⚡ query_processing: 2.87s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 26}
+2025-09-11 05:27:07,358 - INFO - ⚡ query_processing: 2.87s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 26}
+2025-09-11 05:27:44,428 - INFO - ⚡ query_processing: 1.86s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 50}
+2025-09-11 05:27:44,428 - INFO - ⚡ query_processing: 1.86s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 50}
+2025-09-11 23:27:41,556 - INFO - ⚡ query_processing: 13.62s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 65}
+2025-09-11 23:28:21,755 - INFO - ⚡ query_processing: 4.73s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 65}
+2025-09-11 23:28:41,167 - INFO - ⚡ query_processing: 6.16s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 13}
+2025-09-11 23:29:40,652 - INFO - ⚡ query_processing: 7.15s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 27}
+2025-09-11 23:32:06,749 - INFO - ⚡ query_processing: 14.47s - {"mode": "\ud83d\udd0d Semantic Search (AI-powered)", "question_length": 27}

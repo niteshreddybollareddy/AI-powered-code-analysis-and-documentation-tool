@@ -1,0 +1,941 @@
+2025-09-11 04:29:07,079 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1184, in _generate
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1179, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-09-11 04:34:18,387 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 158, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 04:39:10,024 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: Error code: 400 - {'code': 'Client specified an invalid argument', 'error': 'Incorrect API key provided: sk***gA. You can obtain an API key from https://console.x.ai.'}
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1184, in _generate
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1179, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'code': 'Client specified an invalid argument', 'error': 'Incorrect API key provided: sk***gA. You can obtain an API key from https://console.x.ai.'}
+2025-09-11 04:45:12,878 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 158, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 04:50:33,628 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: Error code: 400 - {'code': 'Client specified an invalid argument', 'error': 'Incorrect API key provided: sk***UA. You can obtain an API key from https://console.x.ai.'}
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1184, in _generate
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1179, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'code': 'Client specified an invalid argument', 'error': 'Incorrect API key provided: sk***UA. You can obtain an API key from https://console.x.ai.'}
+2025-09-11 04:52:58,521 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 158, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 04:53:19,489 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': "Your newly created teams doesn't have any credits yet. You can purchase credits on https://console.x.ai/team/577f35f0-92d2-4286-98aa-247a88034223."}
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1184, in _generate
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1179, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_legacy_response.py", line 364, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.PermissionDeniedError: Error code: 403 - {'code': 'The caller does not have permission to execute the specified operation', 'error': "Your newly created teams doesn't have any credits yet. You can purchase credits on https://console.x.ai/team/577f35f0-92d2-4286-98aa-247a88034223."}
+2025-09-11 04:58:11,142 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Error updating collection: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 158, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Error updating collection: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 04:58:19,629 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 961, in _generate
+    response: GenerateContentResponse = _chat_with_retry(
+                                        ^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 196, in _chat_with_retry
+    return _chat_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 194, in _chat_with_retry
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 178, in _chat_with_retry
+    return generation_method(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-09-11 04:59:50,313 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 961, in _generate
+    response: GenerateContentResponse = _chat_with_retry(
+                                        ^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 196, in _chat_with_retry
+    return _chat_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 194, in _chat_with_retry
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 178, in _chat_with_retry
+    return generation_method(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-09-11 04:59:50,313 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 961, in _generate
+    response: GenerateContentResponse = _chat_with_retry(
+                                        ^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 196, in _chat_with_retry
+    return _chat_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 194, in _chat_with_retry
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 178, in _chat_with_retry
+    return generation_method(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-09-11 05:00:02,179 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 961, in _generate
+    response: GenerateContentResponse = _chat_with_retry(
+                                        ^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 196, in _chat_with_retry
+    return _chat_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 194, in _chat_with_retry
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 178, in _chat_with_retry
+    return generation_method(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-09-11 05:00:02,179 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 278, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 961, in _generate
+    response: GenerateContentResponse = _chat_with_retry(
+                                        ^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 196, in _chat_with_retry
+    return _chat_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 194, in _chat_with_retry
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 178, in _chat_with_retry
+    return generation_method(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-09-11 05:07:29,545 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 158, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 05:08:11,374 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 158, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 05:10:33,808 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Error updating collection: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 158, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 32, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Error updating collection: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 05:18:13,133 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 158, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 05:25:39,917 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 161, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 05:25:39,917 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 161, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 23:23:42,031 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Expected Embeddings to be non-empty list or numpy array, got [] in upsert.
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 161, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 326, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 365, in upsert
+    upsert_request = self._validate_and_prepare_upsert_request(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/CollectionCommon.py", line 95, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/CollectionCommon.py", line 405, in _validate_and_prepare_upsert_request
+    upsert_records = normalize_insert_record_set(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/types.py", line 271, in normalize_insert_record_set
+    base_record_set = normalize_base_record_set(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/types.py", line 248, in normalize_base_record_set
+    embeddings=normalize_embeddings(embeddings),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/types.py", line 145, in normalize_embeddings
+    raise ValueError(
+ValueError: Expected Embeddings to be non-empty list or numpy array, got [] in upsert.
+2025-09-11 23:24:17,370 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Error updating collection: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 161, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Error updating collection: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 23:24:31,613 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Error updating collection: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 161, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Error updating collection: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-09-11 23:30:41,873 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Expected Embeddings to be non-empty list or numpy array, got [] in upsert.
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 161, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 326, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 365, in upsert
+    upsert_request = self._validate_and_prepare_upsert_request(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/CollectionCommon.py", line 95, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/CollectionCommon.py", line 405, in _validate_and_prepare_upsert_request
+    upsert_records = normalize_insert_record_set(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/types.py", line 271, in normalize_insert_record_set
+    base_record_set = normalize_base_record_set(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/types.py", line 248, in normalize_base_record_set
+    embeddings=normalize_embeddings(embeddings),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/types.py", line 145, in normalize_embeddings
+    raise ValueError(
+ValueError: Expected Embeddings to be non-empty list or numpy array, got [] in upsert.
+2025-09-11 23:31:32,743 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in repository_indexing: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 161, in <module>
+    db = create_vector_store(documents, persist_directory=DB_DIR)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/vector_store.py", line 21, in create_vector_store
+    db = Chroma.from_documents(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 887, in from_documents
+    return cls.from_texts(
+           ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 843, in from_texts
+    chroma_collection.add_texts(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_community/vectorstores/chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/models/Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/chromadb/api/rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InternalError: Query error: Database error: error returned from database: (code: 1032) attempt to write a readonly database
+2025-11-03 15:49:57,207 - codebase_oracle.error - ERROR - log_error:135 - ❌ Error in query_processing: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/app.py", line 367, in <module>
+    answer = st.session_state.rag_chain.invoke(user_question)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3245, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 395, in invoke
+    self.generate_prompt(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1023, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 840, in generate
+    self._generate_with_cache(
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1089, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 961, in _generate
+    response: GenerateContentResponse = _chat_with_retry(
+                                        ^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 196, in _chat_with_retry
+    return _chat_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 338, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 194, in _chat_with_retry
+    raise e
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/langchain_google_genai/chat_models.py", line 178, in _chat_with_retry
+    return generation_method(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalivarapupranaysai/Desktop/codebase_oracle/venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.

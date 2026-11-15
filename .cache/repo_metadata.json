@@ -1,0 +1,51 @@
+{
+  "4f95da03": {
+    "repo_url": "https://github.com/Pranay-1712/Pranay_AI_Intellego",
+    "repo_name": "Pranay-1712/Pranay_AI_Intellego",
+    "repo_hash": "4f95da03",
+    "repo_path": "temp_repo",
+    "db_path": "chroma_db_code",
+    "file_count": 24,
+    "chunk_count": 139,
+    "languages": {
+      "markdown": 14,
+      "html": 6,
+      "javascript": 65,
+      "text": 54
+    },
+    "last_indexed": "2025-09-11T23:25:18.049635",
+    "indexed_at": 1757613318.04964
+  },
+  "a5252475": {
+    "repo_url": "https://github.com/siddharth-sekhar/Tic-Tac-Toe-Game",
+    "repo_name": "siddharth-sekhar/Tic-Tac-Toe-Game",
+    "repo_hash": "a5252475",
+    "repo_path": "temp_repo",
+    "db_path": "chroma_db_code",
+    "file_count": 3,
+    "chunk_count": 6,
+    "languages": {
+      "html": 2,
+      "javascript": 2,
+      "text": 2
+    },
+    "last_indexed": "2025-09-11T23:26:10.662286",
+    "indexed_at": 1757613370.662291
+  },
+  "e4894036": {
+    "repo_url": "https://github.com/Abhinavd1605/Kyynovate-2025-Team_TrioSolvers",
+    "repo_name": "Abhinavd1605/Kyynovate-2025-Team_TrioSolvers",
+    "repo_hash": "e4894036",
+    "repo_path": "temp_repo",
+    "db_path": "chroma_db_code",
+    "file_count": 5,
+    "chunk_count": 53,
+    "languages": {
+      "markdown": 7,
+      "python": 14,
+      "html": 32
+    },
+    "last_indexed": "2025-11-03T15:48:58.152543",
+    "indexed_at": 1762165138.152549
+  }
+}
